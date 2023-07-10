@@ -16,7 +16,7 @@ export const useAuthStore = () => {
         try {
             //Hcemos la peticion para logearnos
             const { data } = await calendarApi.post('/auth',{email, password});
-            console.log(data)
+        
             //Guardamos el token en el localStorage
             localStorage.setItem('token', data.token)
             localStorage.setItem('token-init-date', new Date().getTime()) //Grabamos el momento en el que generamos el token para hacer caclulos sobre tiempo para que expire el token
