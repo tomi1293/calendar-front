@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { calendarApi } from "../api";
-import { clearErrorMessage, onChecking, onLogin, onLogout } from "../store";
+import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutCalendar } from "../store";
 
 //*Podemos usar un hook para las funciones asincornas en lugar de usar thunks. Es otra forma de hacerlo.
 export const useAuthStore = () => {
@@ -71,8 +71,9 @@ export const useAuthStore = () => {
     }
 
     const startLogout = () => {
-        localStorage.clear()
-        dispatch(onLogout())
+        localStorage.clear();
+        dispatch(onLogout());
+        dispatch(onLogoutCalendar());
     }
 
     return {
